@@ -1,0 +1,160 @@
+body{
+	background-color: #fffef8;
+	max-width: 1440px;
+	max-height: 1024px;
+	margin:0;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0;
+	width: 1140px;
+	height: 42px;
+	margin-top: 35px;
+	margin-left: 150px;
+}
+
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	line-height: 26.4px;
+	color: #B1663C;
+	width: 213px;
+	height: 26px;
+}
+
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	font-weight: 400;
+	line-height: 11.73px;
+	width: 138px;
+	height: 12px;
+	flex-wrap: nowrap
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+	
+}
+nav li {
+	padding: 0 20px;
+	font-size:16px;
+	width: 55px;
+	height: 19px;
+	font-family: 'work sans';
+	font-size: 16px;
+	font-weight: 400;
+	;
+}
+nav a {
+	text-decoration: none;
+	color:black 
+}
+
+nav a img {
+	width: 22px;
+	height: 22px;
+}
+
+li:hover {
+	color: black;
+	font-weight: bold;
+}
+
+
+main  {
+	display: flex;
+	justify-content: center;
+	align-items:center ;
+	margin-top: 130px;
+	margin-bottom: 530px;
+}
+
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154;
+	text-align: center;
+}
+
+label {
+	font-family: "Work Sans";
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16px;
+	text-align: left;
+}
+
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 179px;
+	height: 36px!important;
+	border-radius: 60px ;
+}
+
+input{
+	display: block;
+	width: 379px;
+	height: 51px;
+	margin: 5px 0;
+}
+
+#contact input {
+	height: 50px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+
+}
+#contact input[type="email"] {
+    display: block;
+    margin-bottom: 45px;
+}
+
+#contact h2{
+	margin-bottom: 20px;
+}
+
+#contact form {
+	margin-top:30px;
+}
+
+#contact a {
+	display: flex;
+	justify-content: center;
+	font-family: "work sans";
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16.42px;
+	margin-top: 10px;
+}
+
+#contact a:visited {
+	color: black;
+}
+
+footer{
+	background-color: #ffffff;
+	height: 60px;
+}
+footer nav ul {
+	display: flex;
+	padding-left: 1224px;
+	padding-top: 24px; 
+	font-family: "Work Sans";
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 16.42px;
+}

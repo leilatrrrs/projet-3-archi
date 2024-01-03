@@ -196,6 +196,49 @@ function afficherGaleriePhoto() {
 afficherGaleriePhoto()
 
 
+
+// Ajoutez la fonction supprimerPhoto
+function supprimerPhoto(photoId, index) {
+    // Supprimer la photo de la galerie modale
+    const modalPhoto = document.querySelector('.modal-photos');
+    const modalTrash = document.querySelector(`.trash-${index}`);
+    modalPhoto.removeChild(modalTrash.parentElement);
+
+    // Supprimer la photo de la page principale
+    const galleryPhoto = document.querySelector(`[data-id="${photoId}"]`);
+    galleryPhoto.parentElement.removeChild(galleryPhoto);
+
+    // Envoyer une demande de suppression à la base de données
+    const apiWorksDelete = `http://localhost:5678/api/works/${photoId}`;
+    const token = localStorage.getItem('token');
+
+    fetch(apiWorksDelete, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log(`Photo avec l'ID ${photoId} supprimée de la base de données.`);
+        } else {
+            console.error('Échec de la suppression de la photo de la base de données.');
+        }
+    })
+    .catch(error => {
+        console.error('Erreur lors de la communication avec le serveur :', error);
+    });
+}
+
+
+
+
+
+
+
+
+
+
 function hideModalContent() {
     modalLigne.style.display = 'none'
     modalBtn.style.display = 'none'
@@ -424,38 +467,4 @@ function checkImgSize(e, modalImageLabel) {
         modalImageLabel.appendChild(imgPreview);
       }
     }
-    function trashListener(){
-    
-        for (let i = 0; i < getPhotos.length; i++) {
-            const trashContainer = document.querySelector(`.trash-${i}`)
-            trashContainer.addEventListener('click', async function (){
-        
-                const del = await fetch(`http://localhost:5678/api/works/${getPhotos[i].id}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-
-
-                console.log('projets :', getPhotos);
-                console.log('i :', i);
-                console.log('projets[i].id :', getPhotos[i].id);
-
-
-                projets.splice(i, 1)
-                console.log(del)
-    
-
-
-                afficherPhotos(getPhotos, sectionGallery)
-                afficherGaleriePhoto(getPhotos, photoContainer)
-                trashListener()
-            })
-        }
-    }
-
-    modaleButton.addEventListener('click', function (){
-
-        genererModaleAjout()
-    })
+  
